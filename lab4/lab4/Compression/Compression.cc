@@ -96,7 +96,7 @@ public :
     }
     inline void flush()
     {
-        os << outbits;
+        if(outPos != 7) os << outbits;
         out << os.str();
     }
     inline int leftBit()
@@ -107,7 +107,7 @@ public :
     {
         if(inPos != -1)
         {
-            if(in.peek() == EOF && inPos == endBit)
+            if(in.peek() == EOF && inPos == endBit )
             {
                 return false;
             }
